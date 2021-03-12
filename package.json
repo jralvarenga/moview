@@ -13,6 +13,7 @@
     "@nuxt/typescript-runtime": "^2.0.1",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/pwa": "^3.3.5",
+    "@nuxtjs/vercel-builder": "^0.21.2",
     "core-js": "^3.8.3",
     "nuxt": "^2.14.12",
     "vuesax": "^4.0.1-alpha.25"
