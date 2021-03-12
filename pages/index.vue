@@ -2,62 +2,69 @@
   <div>
     <NavBar />
     <main class="container">
-      <span class="section-title">Trending Movies</span>
-      <MoviesContainer :list="trendingMovies" />
-      <span class="section-title">Trending TV Shows</span>
-      <TvContainer :list="trendingTv" />
+      <span class="section-title">Trending Now</span>
+      <TrendingContainer :list="trending" />
+      <span class="section-title">Popular Movies</span>
+      <WatchList :list="popularMovies" />
+      <span class="section-title">Popular TV Shows</span>
+      <WatchList :list="popularTv" />
       <span class="section-title">Upcoming Movies</span>
-      <MoviesContainer :list="upcomingMovies" />
+      <WatchList :list="upcomingMovies" />
     </main>
   </div>
 </template>
 
 <script>
 import NavBar from '~/components/NavBar.vue';
-import MoviesContainer from '~/components/MoviesContainer.vue';
-import TvContainer from '~/components/TvContainer.vue';
+import WatchList from '~/components/WatchList.vue';
+import TrendingContainer from '~/components/TrendingContainer.vue';
 
 export default {
   components: {
     NavBar,
-    MoviesContainer,
-    TvContainer
+    WatchList,
+    TrendingContainer
   },
   data() {
     return {
-      trendingMovies: [],
-      trendingTv: [],
+      trending: [],
+      popularMovies: [],
+      popularTv: [],
       upcomingMovies: []
     }
   },
   async fetch() {
-    const moviesFetch = await fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.API_KEY}`);
-    const tvFetch = await fetch(`https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.API_KEY}`);
+    const trendingFetch = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_KEY}`);
+    const moviesFetch = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`);
+    const tvFetch = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}`);
     const upcomingFetch = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}`);
+
+    const trendingData = await trendingFetch.json();
     const moviesData = await moviesFetch.json();
     const tvData = await tvFetch.json();
     const upcommingData = await upcomingFetch.json();
-    const trendingMovies = moviesData.results;
-    const trendingTv = tvData.results;
+
+    const trending = trendingData.results;
+    const popularMovies = moviesData.results;
+    const popularTv = tvData.results;
     const upcomingMovies = upcommingData.results;
-    this.trendingMovies = trendingMovies;
-    this.trendingTv = trendingTv;
+
+    this.trending = trending;
+    this.popularMovies = popularMovies;
+    this.popularTv = popularTv;
     this.upcomingMovies = upcomingMovies;
   },
   methods: {
-    test() {
-      console.log(this.trending);
-    }
   }
 }
 </script>
 
 <style>
 .container {
-  margin-top: 130px;
+  margin-top: 100px;
 }
 .watch-container {
-  width: 90%;
+  width: 95%;
   margin: auto;
   display: flex;
   align-items: center;
@@ -79,5 +86,19 @@ export default {
   font-size: 25px;
   font-weight: 700;
   margin-left: 5%;
+}
+
+@media only screen and (max-width: 500px) {
+  .watch-container {
+    width: 100%;
+    padding: 0px;
+    box-shadow: 0px 0px 0px 0px;
+    border-radius: 15px;
+  }
+  .movie-container {
+    width: 120px;
+    margin-left: 6px;
+    margin-right: 6px;
+  }
 }
 </style>
