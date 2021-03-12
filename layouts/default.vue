@@ -8,6 +8,7 @@
 * {
   --vs-primary: 241, 142, 22;
   --vs-background: 20, 29, 38;
+  --vs-text: 255, 255, 255;
   --vs-success: 23, 201, 100;
   --vs-danger: 242, 19, 93;
   --vs-warn: 254, 130, 0;
@@ -36,5 +37,30 @@ html {
 body {
   background-color: var(--background);
   overflow-x: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--background);
+  cursor: pointer;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  transition: 300ms;
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+  cursor: pointer;
 }
 </style>
