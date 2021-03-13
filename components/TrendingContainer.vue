@@ -77,12 +77,12 @@ export default {
   overflow-x: auto;
 }
 
-@media only screen and (min-width: 501px) {
+@media only screen and (min-width: 601px) {
   .trending-container2 {
     display: none;
   }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   .trending-container1 {
     display: none;
   }

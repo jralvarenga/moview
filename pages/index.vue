@@ -30,10 +30,11 @@ export default {
       trending: [],
       popularMovies: [],
       popularTv: [],
-      upcomingMovies: []
+      upcomingMovies: [],
     }
   },
   async fetch() {
+    
     const trendingFetch = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_KEY}`);
     const moviesFetch = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`);
     const tvFetch = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}`);
@@ -88,7 +89,7 @@ export default {
   margin-left: 5%;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   .watch-container {
     width: 100%;
     padding: 0px;

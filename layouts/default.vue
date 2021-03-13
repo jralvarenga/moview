@@ -25,6 +25,7 @@
 
 html {
   font-family: 'poppins';
+  color: #fff;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

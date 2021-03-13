@@ -2,23 +2,31 @@
   <div>
     <vs-navbar class="navbar" center-collapsed>
       <template #left>
-        <img class="logo1" src="~/assets/img/brandname.png" alt="">
-        <img class="logo2" src="~/assets/img/logo.png" alt="">
+        <img @click="redirect" class="logo1" src="~/assets/img/brandname.png" alt="">
+        <img @click="redirect" class="logo2" src="~/assets/img/logo.png" alt="">
       </template>
       <template #right class="actions">
-        <vs-input primary v-model="searchValue" placeholder="Type a movie or TV show" />
-        <vs-button class="search-button">Search</vs-button>
+        <vs-button icon @click="showSearch=!showSearch">
+        <img src="~/assets/icons/search-icon.svg" alt="">
+      </vs-button>
       </template>
     </vs-navbar>
   </div>
 </template>
 
 <script>
+
 export default {
   name: "NavBar",
   data() {
     return {
-      searchValue: ""
+      searchValue: "",
+      showSearch: false
+    }
+  },
+  methods: {
+    redirect() {
+      this.$router.push('/');
     }
   }
 }
@@ -36,22 +44,24 @@ export default {
 .logo1 {
   width: 150px;
   height: 24px;
+  cursor: pointer;
 }
 .logo2 {
   width: 58px;
   height: 50px;
+  cursor: pointer;
 }
 .search-button {
   width: 90px;
   font-family: 'poppins';
 }
 
-@media only screen and (min-width: 501px) {
+@media only screen and (min-width: 601px) {
   .logo2 {
     display: none;
   }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   .logo1 {
     display: none;
   }
