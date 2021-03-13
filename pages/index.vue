@@ -83,7 +83,6 @@ export default {
   margin-right: 20px;
 }
 .section-title {
-  color: #fff;
   font-size: 25px;
   font-weight: 700;
   margin-left: 5%;

@@ -7,6 +7,7 @@
 <style>
 * {
   --vs-primary: 241, 142, 22;
+  --vs-secondary: 255, 255, 00;
   --vs-background: 20, 29, 38;
   --vs-text: 255, 255, 255;
   --vs-success: 23, 201, 100;
@@ -15,6 +16,7 @@
   --vs-dark: 36, 33, 69;
   --background: rgb(20, 29, 38);
   --primary: rgb(241, 142, 22);
+  --secondary: rgb(255, 255, 0);
 }
 
 @font-face {

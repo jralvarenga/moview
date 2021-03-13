@@ -2,7 +2,7 @@
 <div>
   <vs-card-group class="trending-container1">
     <div v-for="(movie, i) in list" v-bind:key="i">
-      <vs-card class="movie-container" type="1">
+      <vs-card @click="openMovieModal(movie.id, movie.title ? 'movie' : 'tv')" class="movie-container" type="1">
         <template #title>
           <h3>{{ movie.title ? movie.title : movie.name }}</h3>
         </template>
@@ -24,7 +24,7 @@
 
   <div class="trending-container2">
     <div v-for="(movie, i) in list" v-bind:key="i">
-      <vs-card class="movie-container" type="1">
+      <vs-card @click="openMovieModal(movie.id, movie.title ? 'movie' : 'tv')" class="movie-container" type="1">
         <template #title>
           <h3>{{ movie.title ? movie.title : movie.name }}</h3>
         </template>
@@ -51,6 +51,11 @@ export default {
   name: "TrendingContainer",
   props: {
     list: Array
+  },
+  methods: {
+    async openMovieModal(id, media) {
+      this.$router.push(`/to-watch?id=${id}&media=${media}`);
+    }
   }
 }
 </script>

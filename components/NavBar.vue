@@ -6,7 +6,7 @@
         <img @click="redirect" class="logo2" src="~/assets/img/logo.png" alt="">
       </template>
       <template #right class="actions">
-        <vs-button icon @click="showSearch=!showSearch">
+        <vs-button gradient icon @click="showSearch=!showSearch">
         <img src="~/assets/icons/search-icon.svg" alt="">
       </vs-button>
       </template>
@@ -54,6 +54,7 @@ export default {
 .search-button {
   width: 90px;
   font-family: 'poppins';
+  color: #fff;
 }
 
 @media only screen and (min-width: 601px) {
