@@ -1,8 +1,5 @@
 <template>
-<div v-if="loading">
-  <LoadingScreen />
-</div>
-<div v-else>
+<div>
   <NavBar />
   <main class="container">
     <span class="section-title">Trending Now</span>
@@ -21,18 +18,15 @@
 import NavBar from '~/components/NavBar.vue';
 import WatchList from '~/components/WatchList.vue';
 import TrendingContainer from '~/components/TrendingContainer.vue';
-import LoadingScreen from '~/components/LoadingScreen.vue';
 
 export default {
   components: {
     NavBar,
     WatchList,
     TrendingContainer,
-    LoadingScreen
   },
   data() {
     return {
-      loading: true,
       trending: [],
       popularMovies: [],
       popularTv: [],
