@@ -34,10 +34,10 @@ export default {
     }
   },
   async created() {
-    const trendingFetch = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_KEY}`);
-    const moviesFetch = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`);
-    const tvFetch = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}`);
-    const upcomingFetch = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}`);
+    const trendingFetch = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=7d170c233de4b468625db8cf935d4e30`);
+    const moviesFetch = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7d170c233de4b468625db8cf935d4e30`);
+    const tvFetch = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=7d170c233de4b468625db8cf935d4e30`);
+    const upcomingFetch = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=7d170c233de4b468625db8cf935d4e30`);
 
     const trendingData = await trendingFetch.json();
     const moviesData = await moviesFetch.json();
