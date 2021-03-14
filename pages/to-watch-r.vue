@@ -37,20 +37,20 @@
   </main>
   <main class="container">
     <span class="recomendations-title">Recomended</span>
-    <RecomendedList :list="recomended" />
+    <WatchList :list="recomended" />
   </main>
 </div>
 </template>
 
 <script>
 import NavBar from '~/components/NavBar.vue';
-import RecomendedList from '~/components/RecomendedList.vue';
+import WatchList from '~/components/WatchList.vue';
 import LoadingScreen from '~/components/LoadingScreen.vue';
 
 export default {
   components: {
     NavBar,
-    RecomendedList,
+    WatchList,
     LoadingScreen
   },
   data() {
@@ -81,7 +81,6 @@ export default {
         const recomended2 = await recomendations2.json();
         this.recomended = recomended2.results;
         this.loading = false;
-        console.log(data2);
       break;
     }
   },

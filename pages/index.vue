@@ -1,40 +1,45 @@
 <template>
-  <div>
-    <NavBar />
-    <main class="container">
-      <span class="section-title">Trending Now</span>
-      <TrendingContainer :list="trending" />
-      <span class="section-title">Popular Movies</span>
-      <WatchList :list="popularMovies" />
-      <span class="section-title">Popular TV Shows</span>
-      <WatchList :list="popularTv" />
-      <span class="section-title">Upcoming Movies</span>
-      <WatchList :list="upcomingMovies" />
-    </main>
-  </div>
+<div v-if="loading">
+  <LoadingScreen />
+</div>
+<div v-else>
+  <NavBar />
+  <main class="container">
+    <span class="section-title">Trending Now</span>
+    <TrendingContainer :list="trending" />
+    <span class="section-title">Popular Movies</span>
+    <WatchList :list="popularMovies" />
+    <span class="section-title">Popular TV Shows</span>
+    <WatchList :list="popularTv" />
+    <span class="section-title">Upcoming Movies</span>
+    <WatchList :list="upcomingMovies" />
+  </main>
+</div>
 </template>
 
 <script>
 import NavBar from '~/components/NavBar.vue';
 import WatchList from '~/components/WatchList.vue';
 import TrendingContainer from '~/components/TrendingContainer.vue';
+import LoadingScreen from '~/components/LoadingScreen.vue';
 
 export default {
   components: {
     NavBar,
     WatchList,
-    TrendingContainer
+    TrendingContainer,
+    LoadingScreen
   },
   data() {
     return {
+      loading: true,
       trending: [],
       popularMovies: [],
       popularTv: [],
       upcomingMovies: [],
     }
   },
-  async fetch() {
-    
+  async created() {
     const trendingFetch = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_KEY}`);
     const moviesFetch = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`);
     const tvFetch = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}`);
@@ -54,6 +59,7 @@ export default {
     this.popularMovies = popularMovies;
     this.popularTv = popularTv;
     this.upcomingMovies = upcomingMovies;
+    this.loading = false;
   },
   methods: {
   }
