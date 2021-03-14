@@ -1,57 +1,59 @@
 <template>
-<div v-if="loading == true">
-  <LoadingScreen />
-</div>
-<div v-else>
+<div>
   <NavBar />
-  <main class="towatch-container">
-    <div class="poster">
-      <img class="movie-poster" :src="'https://themoviedb.org/t/p/w600_and_h900_bestv2/' + movie.poster_path" alt="">
-      <span class="movie-tagline">{{ movie.tagline }}</span>
-      <div class="movie-rate-title">
-        <span class="rate-box-title">Rate</span>
-        <span class="rate-box-title">People</span>
+  <div v-if="loading == true">
+    <LoadingBox />
+  </div>
+  <div v-else>
+    <main class="towatch-container">
+      <div class="poster">
+        <img class="movie-poster" :src="'https://themoviedb.org/t/p/w600_and_h900_bestv2/' + movie.poster_path" alt="">
+        <span class="movie-tagline">{{ movie.tagline }}</span>
+        <div class="movie-rate-title">
+          <span class="rate-box-title">Rate</span>
+          <span class="rate-box-title">People</span>
+        </div>
+        <div class="movie-rate">
+          <span class="rate-box">{{ movie.vote_average }}</span>
+          <span class="rate-box">{{ kFormatter(movie.vote_count) }}</span>
+        </div>
       </div>
-      <div class="movie-rate">
-        <span class="rate-box">{{ movie.vote_average }}</span>
-        <span class="rate-box">{{ kFormatter(movie.vote_count) }}</span>
+      <div class="description">
+        <h1>{{ movie.title ? movie.title : movie.name }}</h1>
+        <div class="genres-container">
+          <span class="genres" v-for="(genres, i) in movie.genres" :key="i">{{ genres.name }}</span>
+          <span class="runtime">{{ movie.runtime ? runtime(movie.runtime) : runtime(movie.episode_run_time) }} min.</span>
+            <span v-if="movie.seasons" class="runtime">{{ movie.seasons.length }} seasons.</span>
+          <span class="language">{{ movie.original_language }}</span>
+        </div>
+        <div>
+          <h3>Description</h3>
+          <p>{{ movie.overview }}</p>
+        </div>
+        <div class="movie-info">
+          <vs-button @click="goToWebsite(movie.homepage)" v-if="movie.homepage" class="visit-link" circle gradient>Visit website</vs-button>
+          <vs-button @click="goToTMDb" v-if="movie.homepage" class="visit-link" circle gradient>Go to TMDb</vs-button>
+        </div>
       </div>
-    </div>
-    <div class="description">
-      <h1>{{ movie.title ? movie.title : movie.name }}</h1>
-      <div class="genres-container">
-        <span class="genres" v-for="(genres, i) in movie.genres" :key="i">{{ genres.name }}</span>
-        <span class="runtime">{{ movie.runtime ? runtime(movie.runtime) : runtime(movie.episode_run_time) }} min.</span>
-          <span v-if="movie.seasons" class="runtime">{{ movie.seasons.length }} seasons.</span>
-        <span class="language">{{ movie.original_language }}</span>
-      </div>
-      <div>
-        <h3>Description</h3>
-        <p>{{ movie.overview }}</p>
-      </div>
-      <div class="movie-info">
-        <vs-button @click="goToWebsite(movie.homepage)" v-if="movie.homepage" class="visit-link" circle gradient>Visit website</vs-button>
-        <vs-button @click="goToTMDb" v-if="movie.homepage" class="visit-link" circle gradient>Go to TMDb</vs-button>
-      </div>
-    </div>
-  </main>
-  <main class="container">
-    <span class="recomendations-title">Recomended</span>
-    <WatchList :list="recomended" />
-  </main>
+    </main>
+    <main class="container">
+      <span class="recomendations-title">Recomended</span>
+      <WatchList :list="recomended" />
+    </main>
+  </div>
 </div>
 </template>
 
 <script>
 import NavBar from '~/components/NavBar.vue';
 import WatchList from '~/components/WatchList.vue';
-import LoadingScreen from '~/components/LoadingScreen.vue';
+import LoadingBox from '~/components/LoadingBox.vue';
 
 export default {
   components: {
     NavBar,
     WatchList,
-    LoadingScreen
+    LoadingBox
   },
   data() {
     return {
