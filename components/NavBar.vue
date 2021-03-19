@@ -6,22 +6,28 @@
         <img @click="redirect" class="logo2" src="~/assets/img/logo.png" alt="">
       </template>
       <template #right class="actions">
-        <vs-button gradient icon @click="showSearch=!showSearch">
-        <img src="~/assets/icons/search-icon.svg" alt="">
-      </vs-button>
+        <vs-button gradient icon @click="searchMovie=!searchMovie">
+          <img src="~/assets/icons/search-icon.svg" alt="">
+        </vs-button>
       </template>
     </vs-navbar>
+    <SearchContainer :active="searchMovie" />
   </div>
 </template>
 
 <script>
+import SearchContainer from './SearchContainer.vue';
 
 export default {
   name: "NavBar",
+  components: {
+    SearchContainer
+  },
   data() {
     return {
       searchValue: "",
-      showSearch: false
+      showSearch: false,
+      searchMovie: false
     }
   },
   methods: {
