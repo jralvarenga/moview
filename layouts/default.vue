@@ -14,7 +14,7 @@
   --vs-danger: 242, 19, 93;
   --vs-warn: 254, 130, 0;
   --vs-dark: 36, 33, 69;
-  --background: rgb(20, 29, 38);
+  --background: #141D26;
   --primary: rgb(241, 142, 22);
   --secondary: rgb(255, 255, 0);
 }

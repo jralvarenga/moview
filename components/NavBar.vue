@@ -7,7 +7,10 @@
       </template>
       <template #right class="actions">
         <vs-button gradient icon @click="searchMovie=!searchMovie">
-          <img src="~/assets/icons/search-icon.svg" alt="">
+          <i class='bx bxs-movie icons'></i>
+        </vs-button>
+        <vs-button gradient icon @click="searchMovie=!searchMovie">
+          <i class='bx bx-search-alt icons'></i>
         </vs-button>
       </template>
     </vs-navbar>
@@ -61,6 +64,9 @@ export default {
   width: 90px;
   font-family: 'poppins';
   color: #fff;
+}
+.icons {
+  padding: 5px;
 }
 
 @media only screen and (min-width: 601px) {

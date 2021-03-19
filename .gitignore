@@ -86,3 +86,6 @@ dist
 
 # Vim swap files
 *.swp
+
+
+sw.js

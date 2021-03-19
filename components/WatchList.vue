@@ -13,8 +13,10 @@
           <p>{{ movie.release_date ? movie.release_date : movie.first_air_date }}</p>
         </template>
         <template #interactions>
-          <vs-button class="btn-chat" shadow primary>
-            <i class='bx bx-chat' ></i>
+          <vs-button class="rating-box" shadow primary>
+            <span>
+              <i class='bx bxs-star star-icon'></i>
+            </span>
             <span>{{ movie.vote_average }}</span>
           </vs-button>
         </template>
@@ -39,4 +41,12 @@ export default {
 </script>
 
 <style>
+.star-icon {
+  margin-right: 5px;
+}
+.rating-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 </style>

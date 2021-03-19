@@ -13,8 +13,10 @@
           <p>{{ movie.release_date ? movie.release_date : movie.first_air_date }}</p>
         </template>
         <template #interactions>
-          <vs-button class="btn-chat" shadow primary>
-            <i class='bx bx-chat' ></i>
+          <vs-button class="rating-box" shadow primary>
+            <span>
+              <i class='bx bxs-star star-icon'></i>
+            </span>
             <span>{{ movie.vote_average }}</span>
           </vs-button>
         </template>
@@ -26,7 +28,7 @@
     <div v-for="(movie, i) in list" v-bind:key="i">
       <vs-card @click="openMovieModal(movie.id, movie.title ? 'movie' : 'tv')" class="movie-container" type="1">
         <template #title>
-          <h3>{{ movie.title ? movie.title : movie.name }}</h3>
+          <h3 style="display: block;">{{ movie.title ? movie.title : movie.name }}</h3>
         </template>
         <template #img>
           <img :src="'https://themoviedb.org/t/p/w600_and_h900_bestv2/' + movie.poster_path" alt="">
@@ -35,8 +37,10 @@
           <p>{{ movie.release_date ? movie.release_date : movie.first_air_date }}</p>
         </template>
         <template #interactions>
-          <vs-button class="btn-chat" shadow primary>
-            <i class='bx bx-chat' ></i>
+          <vs-button class="rating-box" shadow primary>
+            <span>
+              <i class='bx bxs-star star-icon'></i>
+            </span>
             <span>{{ movie.vote_average }}</span>
           </vs-button>
         </template>
@@ -80,6 +84,14 @@ export default {
   margin-bottom: 40px;
   flex-direction: row;
   overflow-x: auto;
+}
+.star-icon {
+  margin-right: 5px;
+}
+.rating-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @media only screen and (min-width: 601px) {
