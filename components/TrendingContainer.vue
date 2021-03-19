@@ -66,7 +66,7 @@ export default {
   width: 98%;
   margin: auto;
   border-radius: 30px;
-  margin-top: 20px;
+  margin-top: 0px;
   margin-bottom: 40px;
 }
 .trending-container2 {
@@ -75,7 +75,7 @@ export default {
   display: flex;
   align-items: center;
   border-radius: 30px;
-  padding: 20px;
+  padding: 0px;
   margin-top: 20px;
   margin-bottom: 40px;
   flex-direction: row;

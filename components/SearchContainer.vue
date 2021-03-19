@@ -5,7 +5,7 @@
     </template>
     <form @submit="searchMovies" class="search-container">
       <input v-model="movieName" class="search-input" type="text">
-      <vs-button type="submit" class="search-button" gradient>Search</vs-button>
+      <vs-button type="submit" class="search-movie-button" gradient>Search</vs-button>
     </form>
     <div v-if="searchResult.length == 0">
       <div class="search-results-container"></div>
@@ -74,7 +74,7 @@ export default {
   font-family: 'poppins';
   font-size: 16px;
 }
-.search-button {
+.search-movie-button {
   padding: 5px;
 }
 .search-results-container {

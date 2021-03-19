@@ -32,7 +32,7 @@
         </div>
         <div class="movie-info">
           <vs-button @click="goToWebsite(movie.homepage)" v-if="movie.homepage" class="visit-link" circle gradient>Visit website</vs-button>
-          <vs-button @click="goToTMDb" v-if="movie.homepage" class="visit-link" circle gradient>Go to TMDb</vs-button>
+          <vs-button @click="goToTMDb" class="visit-link" circle gradient>Go to TMDb</vs-button>
         </div>
       </div>
     </main>

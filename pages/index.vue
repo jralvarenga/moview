@@ -51,10 +51,10 @@ export default {
     const tvData = await tvFetch.json();
     const upcommingData = await upcomingFetch.json();
 
-    const trending = trendingData.results;
-    const popularMovies = moviesData.results;
-    const popularTv = tvData.results;
-    const upcomingMovies = upcommingData.results;
+    const trending = this.covertDate(trendingData.results);
+    const popularMovies = this.covertDate(moviesData.results);
+    const popularTv = this.covertDate(tvData.results);
+    const upcomingMovies = this.covertDate(upcommingData.results);
 
     this.trending = trending;
     this.popularMovies = popularMovies;
@@ -63,6 +63,25 @@ export default {
     this.loading = false;
   },
   methods: {
+    covertDate(movie) {
+      const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+      for (let n = 0; n < movie.length; n++) {
+        const media = movie[n].media_type;
+        const date = movie[n].release_date ? movie[n].release_date : movie[n].first_air_date;
+        const converted = new Date(date);
+        const month = monthsArray[converted.getMonth()];
+        const day = converted.getDate();
+        const year = converted.getFullYear();
+        const newDate = `${day} ${month} ${year}`;
+        if (media == 'tv') {
+          movie[n].first_air_date = newDate;
+        } else {
+          movie[n].release_date = newDate;
+        }
+      }
+
+      return movie;
+    }
   }
 }
 </script>
