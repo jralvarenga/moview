@@ -95,7 +95,7 @@ export default {
   margin: auto;
   display: flex;
   align-items: center;
-  box-shadow: 4px 4px 20px 5px rgb(15, 22, 29);
+  background-color: #0e151b;
   border-radius: 30px;
   padding: 20px;
   margin-top: 20px;
@@ -120,6 +120,7 @@ export default {
     padding: 0px;
     box-shadow: 0px 0px 0px 0px;
     border-radius: 15px;
+    background-color: inherit;
   }
   .movie-container {
     width: 120px;

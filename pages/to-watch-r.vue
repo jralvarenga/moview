@@ -9,6 +9,7 @@
       <div class="poster">
         <img class="movie-poster" :src="'https://themoviedb.org/t/p/w600_and_h900_bestv2/' + movie.poster_path" alt="">
         <span class="movie-tagline">{{ movie.tagline }}</span>
+        <span class="movie-tagline">{{ movie.release_date ? movie.release_date : movie.first_air_date }}</span>
         <div class="movie-rate-title">
           <span class="rate-box-title">Rate</span>
           <span class="rate-box-title">People</span>
@@ -69,19 +70,19 @@ export default {
       case 'movie':
         const res1 = await fetch(`https://api.themoviedb.org/3/movie/${this.id}?api_key=7d170c233de4b468625db8cf935d4e30`);
         const data1 = await res1.json();
-        this.movie = data1;
+        this.movie = this.convertDate(data1);
         const recomendations1 = await fetch(`https://api.themoviedb.org/3/movie/${this.id}/recommendations?api_key=7d170c233de4b468625db8cf935d4e30`);
         const recomended1 = await recomendations1.json();
-        this.recomended = recomended1.results;
+        this.recomended = this.convertDateArr(recomended1.results);
         this.loading = false;
       break;
       case 'tv':
         const res2 = await fetch(`https://api.themoviedb.org/3/tv/${this.id}?api_key=7d170c233de4b468625db8cf935d4e30`);
         const data2 = await res2.json();
-        this.movie = data2;
+        this.movie = this.convertDate(data2);
         const recomendations2 = await fetch(`https://api.themoviedb.org/3/tv/${this.id}/recommendations?api_key=7d170c233de4b468625db8cf935d4e30`);
         const recomended2 = await recomendations2.json();
-        this.recomended = recomended2.results;
+        this.recomended = this.convertDateArr(recomended2.results);
         this.loading = false;
       break;
     }
@@ -111,6 +112,40 @@ export default {
           window.location = `https://www.themoviedb.org/tv/${id2}`;
         break;
       }
+    },
+    convertDateArr(movie) {
+      const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+      for (let n = 0; n < movie.length; n++) {
+        const media = movie[n].media_type;
+        const date = movie[n].release_date ? movie[n].release_date : movie[n].first_air_date;
+        const converted = new Date(date);
+        const month = monthsArray[converted.getMonth()];
+        const day = converted.getDate();
+        const year = converted.getFullYear();
+        const newDate = `${day} ${month} ${year}`;
+        if (media == 'tv') {
+          movie[n].first_air_date = newDate;
+        } else {
+          movie[n].release_date = newDate;
+        }
+      }
+      return movie;
+    },
+    convertDate(movie) {
+      const monthsArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+      const media = movie.media_type;
+      const date = movie.release_date ? movie.release_date : movie.first_air_date;
+      const converted = new Date(date);
+      const month = monthsArray[converted.getMonth()];
+      const day = converted.getDate();
+      const year = converted.getFullYear();
+      const newDate = `${day} ${month} ${year}`;
+      if (media == 'tv') {
+        movie.first_air_date = newDate;
+      } else {
+        movie.release_date = newDate;
+      }
+      return movie;
     }
   }
 }

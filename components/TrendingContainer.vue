@@ -28,7 +28,7 @@
     <div v-for="(movie, i) in list" v-bind:key="i">
       <vs-card @click="openMovieModal(movie.id, movie.title ? 'movie' : 'tv')" class="movie-container" type="1">
         <template #title>
-          <h3 style="display: block;">{{ movie.title ? movie.title : movie.name }}</h3>
+          <h3 class="movie-title">{{ movie.title ? movie.title : movie.name }}</h3>
         </template>
         <template #img>
           <img :src="'https://themoviedb.org/t/p/w600_and_h900_bestv2/' + movie.poster_path" alt="">
@@ -77,13 +77,19 @@ export default {
   width: 90%;
   margin: auto;
   display: flex;
-  align-items: center;
-  border-radius: 30px;
+  align-items: initial;
+  border-radius: 15px;
   padding: 0px;
   margin-top: 20px;
   margin-bottom: 40px;
   flex-direction: row;
   overflow-x: auto;
+}
+.movie-title {
+  width: 100%;
+  font-size: 14px;
+  font-weight: normal;
+  overflow: hidden;
 }
 .star-icon {
   margin-right: 5px;
