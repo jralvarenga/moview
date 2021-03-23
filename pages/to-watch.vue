@@ -71,19 +71,19 @@ export default {
   async fetch() {
     switch (this.media) {
       case 'movie':
-        const res1 = await fetch(`https://api.themoviedb.org/3/movie/${this.id}?api_key=${process.env.API_KEY}`);
+        const res1 = await fetch(`https://api.themoviedb.org/3/movie/${this.id}?api_key=7d170c233de4b468625db8cf935d4e30`);
         const data1 = await res1.json();
         this.movie = this.convertDate(data1);
-        const recomendations1 = await fetch(`https://api.themoviedb.org/3/movie/${this.id}/recommendations?api_key=${process.env.API_KEY}`);
+        const recomendations1 = await fetch(`https://api.themoviedb.org/3/movie/${this.id}/recommendations?api_key=7d170c233de4b468625db8cf935d4e30`);
         const recomended1 = await recomendations1.json();
         this.recomended = this.convertDateArr(recomended1.results);
         this.loading = false;
       break;
       case 'tv':
-        const res2 = await fetch(`https://api.themoviedb.org/3/tv/${this.id}?api_key=${process.env.API_KEY}`);
+        const res2 = await fetch(`https://api.themoviedb.org/3/tv/${this.id}?api_key=7d170c233de4b468625db8cf935d4e30`);
         const data2 = await res2.json();
         this.movie = this.convertDate(data2);
-        const recomendations2 = await fetch(`https://api.themoviedb.org/3/tv/${this.id}/recommendations?api_key=${process.env.API_KEY}`);
+        const recomendations2 = await fetch(`https://api.themoviedb.org/3/tv/${this.id}/recommendations?api_key=7d170c233de4b468625db8cf935d4e30`);
         const recomended2 = await recomendations2.json();
         this.recomended = this.convertDateArr(recomended2.results);
         this.loading = false;
