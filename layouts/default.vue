@@ -8,7 +8,7 @@
 * {
   --vs-primary: 241, 142, 22;
   --vs-secondary: 255, 255, 00;
-  --vs-background: 20, 29, 38;
+  --vs-background: 15, 24, 34;
   --vs-text: 255, 255, 255;
   --vs-success: 23, 201, 100;
   --vs-danger: 242, 19, 93;

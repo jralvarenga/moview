@@ -42,6 +42,7 @@
       <RecomendedList :list="recomended" />
     </main>
   </div>
+  <Footer />
 </div>
 </template>
 
@@ -49,12 +50,14 @@
 import NavBar from '~/components/NavBar.vue';
 import RecomendedList from '~/components/RecomendedList.vue';
 import LoadingBox from '~/components/LoadingBox.vue';
+import Footer from '~/components/Footer.vue';
 
 export default {
   components: {
     NavBar,
     RecomendedList,
-    LoadingBox
+    LoadingBox,
+    Footer
   },
   data() {
     return {
@@ -154,15 +157,14 @@ export default {
 
 <style>
 .towatch-container {
-  width: 70%;
+  width: 95%;
   margin: auto;
   display: flex;
   flex-direction: row;
-  box-shadow: 4px 4px 20px 5px rgb(15, 22, 29);
   padding: 30px;
   border-radius: 15px;
   margin-top: 100px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 .poster {
   display: flex;
@@ -178,7 +180,6 @@ export default {
   margin: auto;
   display: flex;
   align-items: center;
-  box-shadow: 4px 4px 20px 5px rgb(15, 22, 29);
   border-radius: 30px;
   padding: 20px;
   margin-top: 20px;

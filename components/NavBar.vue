@@ -6,7 +6,7 @@
         <img @click="redirect" class="logo2" src="~/assets/img/logo.png" alt="">
       </template>
       <template #right class="actions">
-        <vs-button gradient icon @click="searchMovie=!searchMovie">
+        <vs-button gradient icon @click="randomPick=!randomPick ">
           <i class='bx bxs-movie icons'></i>
         </vs-button>
         <vs-button gradient icon @click="searchMovie=!searchMovie">
@@ -15,22 +15,40 @@
       </template>
     </vs-navbar>
     <SearchContainer :active="searchMovie" />
+    <RandomPick
+      :active="randomPick"
+      :movies2="movies"  
+      :tv2="tv"
+      :all2="all"
+    />
   </div>
 </template>
 
 <script>
 import SearchContainer from './SearchContainer.vue';
+import RandomPick from './RandomPick.vue';
 
 export default {
   name: "NavBar",
+  props: {
+    movies1: Array,
+    tv1: Array,
+    all1: Array
+  },
   components: {
-    SearchContainer
+    SearchContainer,
+    RandomPick
   },
   data() {
     return {
       searchValue: "",
       showSearch: false,
-      searchMovie: false
+      searchMovie: false,
+      randomPick: false,
+
+      movies: this.movies1,
+      tv: this.tv1,
+      all: this.all1
     }
   },
   methods: {

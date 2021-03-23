@@ -14,7 +14,7 @@
         </template>
         <template #interactions>
           <vs-button class="btn-chat" shadow primary>
-            <i class='bx bx-chat' ></i>
+            <i class='bx bxs-star star-icon'></i>
             <span>{{ movie.vote_average }}</span>
           </vs-button>
         </template>

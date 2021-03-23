@@ -3,7 +3,11 @@
   <LoadingScreen />
 </div>
 <div v-else>
-  <NavBar />
+  <NavBar
+    :movies1="popularMovies"
+    :tv1="popularTv"
+    :all1="trending"
+  />
   <main class="container">
     <span class="section-title">Trending Now</span>
     <TrendingContainer :list="trending" />
@@ -14,6 +18,7 @@
     <span class="section-title">Upcoming Movies</span>
     <WatchList :list="upcomingMovies" />
   </main>
+  <Footer />
 </div>
 </template>
 
@@ -22,13 +27,15 @@ import NavBar from '~/components/NavBar.vue';
 import WatchList from '~/components/WatchList.vue';
 import TrendingContainer from '~/components/TrendingContainer.vue';
 import LoadingScreen from '~/components/LoadingScreen.vue';
+import Footer from '~/components/Footer.vue';
 
 export default {
   components: {
     NavBar,
     WatchList,
     TrendingContainer,
-    LoadingScreen
+    LoadingScreen,
+    Footer
   },
   data() {
     return {
@@ -95,7 +102,6 @@ export default {
   margin: auto;
   display: flex;
   align-items: center;
-  background-color: #0e151b;
   border-radius: 30px;
   padding: 20px;
   margin-top: 20px;
