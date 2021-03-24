@@ -72,6 +72,7 @@ export default {
   border-radius: 30px;
   margin-top: 0px;
   margin-bottom: 40px;
+  animation: load-page 300ms ease-in;
 }
 .trending-container2 {
   width: 90%;
@@ -84,6 +85,7 @@ export default {
   margin-bottom: 40px;
   flex-direction: row;
   overflow-x: auto;
+  animation: load-page 700ms ease-in;
 }
 .movie-title {
   width: 100%;

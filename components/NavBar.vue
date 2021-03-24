@@ -62,6 +62,7 @@ export default {
 <style>
 .navbar {
   padding: 20px;
+  animation: load-page 300ms ease-in;
 }
 .actions {
   display: flex;

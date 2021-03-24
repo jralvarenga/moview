@@ -165,6 +165,7 @@ export default {
   border-radius: 15px;
   margin-top: 100px;
   margin-bottom: 40px;
+  animation: load-page 300ms ease-in;
 }
 .poster {
   display: flex;

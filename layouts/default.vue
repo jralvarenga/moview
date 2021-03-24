@@ -38,6 +38,7 @@ html {
 }
 
 body {
+  margin: 0;
   background-color: var(--background);
   overflow-x: hidden;
 }
@@ -57,13 +58,13 @@ body {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   transition: 300ms;
-  background: var(--primary);
+  background: #121a24;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+  background: #10171f;
   cursor: pointer;
 }
 </style>

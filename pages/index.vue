@@ -108,6 +108,7 @@ export default {
   margin-bottom: 40px;
   flex-direction: row;
   overflow-x: auto;
+  animation: load-page 1000ms ease-in;
 }
 .movie-container {
   width: 200px;
@@ -132,6 +133,15 @@ export default {
     width: 120px;
     margin-left: 6px;
     margin-right: 6px;
+  }
+}
+
+@keyframes load-page {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 </style>
