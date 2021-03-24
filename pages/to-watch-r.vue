@@ -304,5 +304,8 @@ export default {
     margin-left: 6px;
     margin-right: 6px;
   }
+  .movie-tagline {
+    width: 100%;
+  }
 }
 </style>
