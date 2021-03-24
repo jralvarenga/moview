@@ -8,7 +8,7 @@ export default {
       { name: 'keywords', content: 'movies, movie, watch, tv, series, tmdb, upcoming, cine' },
       { name: 'theme-color', content: '#0f1822' },
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
-      { name: 'apple-mobile-web-app-capable', content: 'black-translucent' }
+      { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
