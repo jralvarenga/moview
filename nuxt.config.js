@@ -5,10 +5,14 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Find something to watch easly' },
-      { name: 'theme-color', content: '#141D26' }
+      { name: 'keywords', content: 'movies, movie, watch, tv, series, tmdb, upcoming, cine' },
+      { name: 'theme-color', content: '#0f1822' },
+      { name: 'apple-mobile-web-app-capable', content: 'yes' },
+      { name: 'apple-mobile-web-app-capable', content: 'black-translucent' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', sizes: '192x192', href: '/icon-192.png' },
       { rel: 'stylesheet', href: 'https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' }
     ],
   },
