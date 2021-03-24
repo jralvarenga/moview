@@ -28,13 +28,10 @@ export default {
     '@nuxtjs/dotenv',
   ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
   ],
 
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
       name: 'Moview',
@@ -45,6 +42,12 @@ export default {
       theme_color: '#141D26',
       display: 'standalone',
       icons: [
+        {
+          src: '/icon-128.png',
+          type: 'image/png',
+          sizes: '128x128',
+          purpose: 'any maskable'
+        },
         {
           src: '/icon-192.png',
           type: 'image/png',
@@ -62,7 +65,6 @@ export default {
     },
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
 }
