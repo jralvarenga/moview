@@ -37,7 +37,7 @@ export default {
     async searchMovies(e) {
       e.preventDefault();
       const name = this.movieName;
-      const res = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=7d170c233de4b468625db8cf935d4e30&query=${name}`);
+      const res = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=${process.env.API_KEY}&query=${name}`);
       const data = await res.json();
       let results = [];
 

@@ -29,7 +29,6 @@ export default {
 
   buildModules: [
     '@nuxt/typescript-build',
-    '@nuxtjs/dotenv',
   ],
 
   modules: [
@@ -70,5 +69,9 @@ export default {
   },
 
   build: {
+  },
+
+  env: {
+    API_KEY: process.env.API_KEY
   }
 }
